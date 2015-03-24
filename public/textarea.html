@@ -1,0 +1,39 @@
+<!-- Adapted from http://notherdev.blogspot.com/2014/10/sharejs-073-working-example.html -->
+ 
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <title>ShareJS and Textareas</title>
+</head>
+<body>
+    <textarea id="pad" rows="10" cols="50"></textarea>
+ 
+    <script src="/srv/text.js"></script>
+    <script src="/srv/share.js"></script>
+    <script>
+        var getUrlParameter = function (name) {
+            return (new RegExp(name + '=' + '(.+?)(&|$)').exec(window.location.search)||[,null])[1];
+        };
+
+        var ws = new WebSocket('ws://' + window.location.hostname);
+        var share = new sharejs.Connection(ws);
+
+        var doc = share.get('docs', getUrlParameter('doc')  || "default");
+        doc.subscribe();
+
+        doc.whenReady(function () {
+            if (!doc.type) {
+                doc.create('text');
+            }
+
+            var elem = document.getElementById('pad');
+            doc.attachTextarea(elem);
+        });
+        
+    </script>
+    <h3>Instructions</h3>
+    <p>
+        Add <span style="font-family: monospace">?doc=<b>XXXX</b></span> to the end of the URL, where <span style="font-family: monospace">XXXX</span> is a string of letters and numbers.  This is the identifier for the text document you are editing.
+    </p>
+</body>
+</html>
