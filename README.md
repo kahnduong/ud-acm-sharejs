@@ -6,17 +6,23 @@ Setup
 ---------------
 1. Clone this repository
 2. Install the dependencies with npm
-```
-npm install
-```
+
+    ```
+    npm install
+    ```
+
 3. Compile the server code to JavaScript:
-```
-coffee -c server.coffee
-```
+
+    ```
+    coffee -c server.coffee
+    ```
+
 4. Run the server:
-```
-node server.js
-```
+
+    ```
+    node server.js
+    ```
+
 5. Open in a web browser.
 
 
