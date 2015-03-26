@@ -1,6 +1,6 @@
 ud-acm-sharejs
 =======
-This repo contains updated ShareJS code examples for my talk at a UD ACM workshop on March 26, 2015.
+This repo contains updated ShareJS code examples for my talk at a UD ACM development workshop in April 2015.
 
 Setup
 ---------------
